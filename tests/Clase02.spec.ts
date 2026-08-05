@@ -4,7 +4,7 @@ import * as fs from 'fs';
 // Crear carpeta para evidencias si no existe
 test.beforeAll(() => {
   if (!fs.existsSync('./evidencias')) {
-    fs.mkdirSync('./evidencias');
+    fs.mkdirSync('./evidencias/clase02');
   }
 });
 
@@ -16,7 +16,7 @@ test.describe('Clase 02 - Navegación y esperas en DemoBlaze', () => {
         await expect(page).toHaveURL(/demoblaze/);
 
         await page.screenshot({
-        path: './evidencias/01-pagina-inicio.png',
+        path: './evidencias/clase02/01-pagina-inicio.png',
         fullPage: true
         });
 
@@ -27,7 +27,7 @@ test.describe('Clase 02 - Navegación y esperas en DemoBlaze', () => {
         await expect(page).toHaveURL(/cart/);
 
         await page.screenshot({
-        path: './evidencias/02-carrito-vacio.png',
+        path: './evidencias/clase02/02-carrito-vacio.png',
         fullPage: true
         });
 
@@ -54,7 +54,7 @@ test.describe('Clase 02 - Navegación y esperas en DemoBlaze', () => {
         await page.waitForLoadState('domcontentloaded');
 
         await page.screenshot({
-            path: './evidencias/03-detalle-producto.png',
+            path: './evidencias/clase02/03-detalle-producto.png',
             fullPage: true
         });
 
@@ -70,7 +70,7 @@ test.describe('Clase 02 - Navegación y esperas en DemoBlaze', () => {
         const navbar = page.locator('#navbarExample');
 
         await navbar.screenshot({
-            path: './evidencias/04-navbar.png'
+            path: './evidencias/clase02/04-navbar.png'
         });
 
         
@@ -88,14 +88,14 @@ test.describe('Clase 02 - Navegación y esperas en DemoBlaze', () => {
 
         // Tomar la captura
         await footer.screenshot({
-            path: './evidencias/05-footer.png'
+            path: './evidencias/clase02/05-footer.png'
         });
             // DemoBlaze no usa <footer>; el pie de página está
             // dentro de un div con la clase .container-fluid.
             //const footer = page.locator('.container-fluid').last();
             //if (await footer.isVisible()) {
             //  await footer.screenshot({
-            //path: './evidencias/05-footer.png'
+            //path: './evidencias/clase02/05-footer.png'
             //});
             //}
     });

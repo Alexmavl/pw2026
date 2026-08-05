@@ -1,4 +1,12 @@
 import { test, expect } from '@playwright/test';
+import * as fs from 'fs';
+
+test.beforeAll(() => {
+  if (!fs.existsSync('./evidencias')) {
+    fs.mkdirSync('./evidencias/clase02');
+  }
+});
+
 
 test('La página carga', async ({ page }) => {
   await page.goto('/');

@@ -4,7 +4,7 @@ import * as fs from 'fs';
 // Crear carpeta para evidencias si no existe
 test.beforeAll(() => {
   if (!fs.existsSync('./evidencias')) {
-    fs.mkdirSync('./evidencias');
+    fs.mkdirSync('./evidencias/clase03');
   }
 });
 
