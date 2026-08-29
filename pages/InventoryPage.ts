@@ -37,6 +37,12 @@ export class InventoryPage {
     await product.locator('.btn_inventory').click();
   }
 
+  // Nuevo método para el Reto 3
+  async removeProductByName(productName: string) {
+    const product = this.page.locator('.inventory_item', { hasText: productName });
+    await product.locator('button', { hasText: 'Remove' }).click();
+  }
+
   async goToCart() {
     await this.cartLink.click();
     await expect(this.page).toHaveURL(/cart/);
