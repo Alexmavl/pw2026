@@ -6,8 +6,8 @@ test.describe('Tests reto: documentar defectos con Playwright', () => {
 
   // Reto 3: Borrador de reporte desde un afterEach
   test.afterEach(async ({ page }, testInfo) => {
-    // Si el test falló de forma no esperada o tiene errores registrados
-    if (testInfo.status !== testInfo.expectedStatus || testInfo.errors.length > 0) {
+    // Si el test arrojó errores durante la aserción o falló su ejecución
+    if (testInfo.errors.length > 0 || testInfo.status !== testInfo.expectedStatus) {
       const borradorReporte = `# Borrador de Reporte de Defecto
 
 **Título:** ${testInfo.title}
@@ -15,7 +15,7 @@ test.describe('Tests reto: documentar defectos con Playwright', () => {
 **URL:** ${page.url()}
 **Resultado obtenido:**
 \`\`\`text
-${testInfo.error?.message || 'Error no especificado durante la ejecución'}
+${testInfo.error?.message || 'Error detectado durante la validación del test'}
 \`\`\`
 `;
 
@@ -73,7 +73,8 @@ ${testInfo.error?.message || 'Error no especificado durante la ejecución'}
     {
       annotation: {
         type: 'issue',
-        description: 'https://github.com/marvinvasquez/calidad-software/issues/1',
+        // Asegúrate de colocar la URL que te generó tu GitHub CLI
+        description: 'https://github.com/Alexmavl/Pw2026/issues/1',
       },
     },
     async ({ page }) => {
